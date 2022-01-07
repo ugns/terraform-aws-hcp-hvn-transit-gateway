@@ -1,0 +1,122 @@
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: "terraform-aws-hcp-hvn-transit-gateway"
+
+# Logo for this project
+#logo: docs/logo.png
+
+# License of this project
+license: "APACHE2"
+
+# Copyrights
+copyrights:
+- name: "UnderGrid Network Services"
+  url: "https://undergrid.net"
+  year: "2021"
+
+# Canonical GitHub repo
+github_repo: "ugns/terraform-aws-hcp-hvn-transit-gateway"
+
+# Badges to display
+badges:
+- name: "Latest Release"
+  image: "https://img.shields.io/github/release/UGNS/terraform-aws-hcp-hvn-transit-gateway.svg"
+  url: "https://github.com/UGNS/terraform-aws-hcp-hvn-transit-gateway/releases/latest"
+
+# List any related terraform modules that this module may be used with or that this module depends on.
+related:
+- name: "terraform-hcp-hvn"
+  description: "Terraform module designed to generate Hashicorp Cloud Platform Hashicorp Virtual Network."
+  url: "https://github.com/ugns/terraform-hcp-hvn"
+- name: "terraform-hcp-hvn-transit-gateway"
+  description: "Terraform module designed to generate Hashicorp Cloud Platform Hashicorp Virtual Network connection using a transit gateway."
+  url: "https://github.com/ugns/terraform-hcp-hvn-transit-gateway"
+- name: "terraform-hcp-hvn-route"
+  description: "Terraform module designed to generate Hashicorp Cloud Platform Hashicorp Virtual Network route back to through link to your AWS VPC."
+  url: "https://github.com/ugns/terraform-hcp-hvn-route"
+
+# List any resources helpful for someone to get started. For example, link to the hashicorp documentation or AWS documentation.
+references:
+- name: "hashicorp-amazon-peering-hcp"
+  description: "Peering an AWS VPC with HashiCorp Cloud Platform (HCP)."
+  url: "https://learn.hashicorp.com/tutorials/cloud/amazon-peering-hcp?in=cloud/consul-cloud"
+- name: "terraform-provider-hcp"
+  description: "Terraform provider for HashiCorp Cloud Platform."
+  url: "https://github.com/hashicorp/terraform-provider-hcp"
+
+# Short description of this project
+description: |-
+  Terraform module to define a consistent Hashicorp Cloud Platform Hashicorp Virtual Network transit gateway connection with your AWS VPC.
+
+# Introduction to the project
+introduction: |-
+  This is an introduction.
+
+# How to use this module. Should be an easy example to copy and paste.
+usage: |-
+  For a complete example, see [examples/complete](examples/complete).
+
+  For automated tests of the complete example using [bats](https://github.com/bats-core/bats-core) and [Terratest](https://github.com/gruntwork-io/terratest)
+  (which tests and deploys the example on AWS), see [test](test).
+
+  ```hcl
+  # Create a standard label resource. See [null-label](https://github.com/cloudposse/terraform-null-label/#terraform-null-label--)
+  module "label" {
+    source  = "cloudposse/label/null"
+    # Cloud Posse recommends pinning every module to a specific version, though usually you want to use the current one
+    # version = "x.x.x"
+
+    namespace = "eg"
+    name      = "example"
+  }
+
+  data "aws_vpc" "default" {
+    default = true
+  }
+
+  data "aws_ec2_transit_gateway" "example" {
+    id = "tgw-12345678"
+  }
+
+  module "hcp_hvn" {
+    source  = "ugns/hcp-hvn/aws"
+    # version = "x.x.x"
+
+    hvn_region = "us-east-1"
+
+    context = module.label.this
+  }
+ 
+   module "example" {
+    source  = "ugns/hcp-hvn-transit-gateway/aws"
+    # version = "x.x.x"
+
+    hcp_hvn_id = module.hcp_hvn.hcp_hvn_id
+    transit_gateway_id = data.aws_ec2_transit_gateway.example.id
+
+    context = module.label.this
+  }
+  ```
+
+# Example usage
+examples: |-
+  Here is an example of using this module:
+  - [`examples/complete`](https://github.com/ugns/terraform-aws-hcp-hvn-transit-gateway/tree/main/examples/complete) - complete example of using this module
+
+# How to get started quickly
+quickstart: |-
+  Here's how to get started...
+
+# Other files to include in this README from the project folder
+include:
+- "docs/targets.md"
+- "docs/terraform.md"
+
+# Contributors to this project
+contributors:
+- name: "Jeremy T. Bouse"
+  github: "jbouse"
