@@ -257,7 +257,8 @@ Check out these related projects.
 
 For additional context, refer to some of these links.
 
-- [hashicorp-amazon-peering-hcp](https://learn.hashicorp.com/tutorials/cloud/amazon-peering-hcp?in=cloud/consul-cloud) - Peering an AWS VPC with HashiCorp Cloud Platform (HCP).
+- [peering-aws-vpc](https://learn.hashicorp.com/tutorials/cloud/amazon-peering-hcp?in=cloud/networking) - Peering an AWS VPC with HashiCorp Cloud Platform.
+- [connect-amazon-transit-gateway](https://learn.hashicorp.com/tutorials/cloud/amazon-transit-gateway?in=cloud/networking) - Connect an Amazon Transit Gateway to your Hashicorp Virtual Network
 - [terraform-provider-hcp](https://github.com/hashicorp/terraform-provider-hcp) - Terraform provider for HashiCorp Cloud Platform.
 
 

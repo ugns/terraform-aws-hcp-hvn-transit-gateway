@@ -16,7 +16,7 @@ module "example" {
   # source = "ugns/hcp-hvn-peering-connection/aws"
   # version = "x.x.x"
 
-  hcp_hvn_id  = module.hcp_hvn.hcp_hvn_id
+  hcp_hvn_id         = module.hcp_hvn.hcp_hvn_id
   transit_gateway_id = var.transit_gateway_id
 
   context = module.label.this
