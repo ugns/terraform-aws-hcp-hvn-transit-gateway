@@ -37,7 +37,7 @@ jobs:
       - name: "Handle common commands"
         uses: ugns/actions/github/slash-command-dispatch@1.0.0
         with:
-          token: ${{ env.GITHUB_TOKEN }}
+          token: ${{ steps.generate_token.outputs.token }}
           reaction-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ugns/actions
           commands: rebuild-readme, terraform-fmt
@@ -79,7 +79,7 @@ jobs:
       - name: "Run tests"
         uses: ugns/actions/github/slash-command-dispatch@1.0.0
         with:
-          token: ${{ env.GITHUB_TOKEN }}
+          token: ${{ steps.generate_token.outputs.token }}
           reaction-token: ${{ secrets.GITHUB_TOKEN }}
           repository: ugns/actions
           commands: test

@@ -45,7 +45,7 @@ jobs:
       if: github.event.pull_request.state == 'open'
       name: Privileged Checkout
       with:
-        token: ${{ env.GITHUB_TOKEN }}
+        token: ${{ steps.generate_token.outputs.token }}
         repository: ${{ github.event.pull_request.head.repo.full_name }}
         # Check out the PR commit, not the merge commit
         # Use `ref` instead of `sha` to enable pushing back to `ref`
@@ -56,7 +56,7 @@ jobs:
       if: github.event.pull_request.state == 'open'
       shell: bash
       env:
-        GITHUB_TOKEN: "${{ env.GITHUB_TOKEN }}"
+        GITHUB_TOKEN: "${{ steps.generate_token.outputs.token }}"
       run: make BUILD_HARNESS_PATH=/build-harness PACKAGES_PREFER_HOST=true -f /build-harness/templates/Makefile.build-harness pr/auto-format/host
 
     # Commit changes (if any) to the PR branch
@@ -101,7 +101,7 @@ jobs:
         contains(' 37929162 29139614 97003863', format(' {0} ', github.event.pull_request.user.id))
         && steps.commit.outputs.changed == 'false' && github.event.pull_request.state == 'open'
       with:
-        token: ${{ env.GITHUB_TOKEN }}
+        token: ${{ steps.generate_token.outputs.token }}
         repository: ugns/actions
         event-type: test-command
         client-payload: |-
