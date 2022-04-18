@@ -24,7 +24,7 @@ jobs:
         private_key: ${{ secrets.GH_PRIVATE_KEY }}
         installation_id: ${{ secrets.GH_INSTALLATION_ID }}
 
-    - uses: mszostok/codeowners-validator@v0.7.2
+    - uses: mszostok/codeowners-validator@v0.7.4
       if: github.event.pull_request.head.repo.full_name == github.repository
       name: "Full check of CODEOWNERS"
       with:
@@ -35,7 +35,7 @@ jobs:
         # GitHub access token is required only if the `owners` check is enabled
         github_access_token: "${{ steps.generate_token.outputs.token }}"
 
-    - uses: mszostok/codeowners-validator@v0.7.2
+    - uses: mszostok/codeowners-validator@v0.7.4
       if: github.event.pull_request.head.repo.full_name != github.repository
       name: "Syntax check of CODEOWNERS"
       with:
