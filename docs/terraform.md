@@ -5,14 +5,14 @@
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | 3.70.0 |
-| <a name="requirement_hcp"></a> [hcp](#requirement\_hcp) | 0.21.1 |
+| <a name="requirement_hcp"></a> [hcp](#requirement\_hcp) | 0.56.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 3.70.0 |
-| <a name="provider_hcp"></a> [hcp](#provider\_hcp) | 0.21.1 |
+| <a name="provider_hcp"></a> [hcp](#provider\_hcp) | 0.56.0 |
 
 ## Modules
 
@@ -29,9 +29,9 @@
 | [aws_ram_principal_association.this](https://registry.terraform.io/providers/hashicorp/aws/3.70.0/docs/resources/ram_principal_association) | resource |
 | [aws_ram_resource_association.this](https://registry.terraform.io/providers/hashicorp/aws/3.70.0/docs/resources/ram_resource_association) | resource |
 | [aws_ram_resource_share.this](https://registry.terraform.io/providers/hashicorp/aws/3.70.0/docs/resources/ram_resource_share) | resource |
-| [hcp_aws_transit_gateway_attachment.this](https://registry.terraform.io/providers/hashicorp/hcp/0.21.1/docs/resources/aws_transit_gateway_attachment) | resource |
+| [hcp_aws_transit_gateway_attachment.this](https://registry.terraform.io/providers/hashicorp/hcp/0.56.0/docs/resources/aws_transit_gateway_attachment) | resource |
 | [aws_ec2_transit_gateway.this](https://registry.terraform.io/providers/hashicorp/aws/3.70.0/docs/data-sources/ec2_transit_gateway) | data source |
-| [hcp_hvn.this](https://registry.terraform.io/providers/hashicorp/hcp/0.21.1/docs/data-sources/hvn) | data source |
+| [hcp_hvn.this](https://registry.terraform.io/providers/hashicorp/hcp/0.56.0/docs/data-sources/hvn) | data source |
 
 ## Inputs
 
