@@ -292,7 +292,7 @@ In general, PRs are welcome. We follow the typical "fork-and-pull" Git workflow.
 
 ## Copyrights
 
-Copyright © 2021-2022 [UnderGrid Network Services](https://undergrid.net)
+Copyright © 2021-2023 [UnderGrid Network Services](https://undergrid.net)
 
 
 
